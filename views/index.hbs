@@ -1,5 +1,3 @@
-
-
 <div class="wrapper">
     <!-- Sidebar -->
     <nav id="sidebar">
@@ -49,74 +47,5 @@
 
 <canvas id="camera" style = "position: absolute; top: 0px;right: 0px; height: 100%; border-radius: 10px;"></canvas>
 
-<script>
-  const canvas = document.getElementById('camera');
+<button onclick="toggleGrabFrame()">Stop frame grab</button>
 
-  var interval;
-  var track;
-
-  navigator.mediaDevices.getUserMedia({video: true})
-    .then(gotMedia)
-    .catch(err => console.error('getUserMedia() failed: ', err));
-
-  function gotMedia(mediastream) {
-    track = mediastream.getVideoTracks()[0];
-    var imageCapture = new ImageCapture(track);
-    interval = setInterval(function () {
-      imageCapture.grabFrame()
-        .then(processFrame)
-        .catch(err => console.error('grabFrame() failed: ', err));
-    }, 100);
-  }
-
-  function processFrame(imgData) {
-    canvas.width = imgData.width;
-    canvas.height = imgData.height;
-    canvas.getContext('2d').clearRect(0,0, canvas.width, canvas.height);
-    canvas.getContext('2d').translate(1+imgData.width, 1);
-    canvas.getContext('2d').scale(-1,1);
-    canvas.getContext('2d').drawImage(imgData, 0, 0);
-    canvas.getContext('2d').setTransform(1,0,0,1,0,0);
-  }
-
-  function stopGrabFrame(e) {
-    clearInterval(interval);
-    track.stop();
-  }
-  $(document).ready(function () {
-
-    $("#sidebar").mCustomScrollbar({
-         theme: "minimal"
-    });
-
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-    });
-
-});
-
-$(document).ready(function () {
-
-    $("#sidebar").mCustomScrollbar({
-         theme: "minimal"
-    });
-
-    $('#sidebarCollapse').on('click', function () {
-        // open or close navbar
-        $('#sidebar').toggleClass('active');
-        // close dropdowns
-        $('.collapse.in').toggleClass('in');
-        // and also adjust aria-expanded attributes we use for the open/closed arrows
-        // in our CSS
-        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-    });
-  
-  var stop = document.getElementsByTagName("SPAN")[0];
-  
-  $("#toggle").click(function(){
-    console.log("TO BRUH");
-    classList.toggleClass("btn-success");
-  })
-
-});
-</script>
