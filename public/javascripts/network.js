@@ -9,8 +9,6 @@ var posenet = posenet.load();
 setInterval(function() {
   posenet.then(function(net) {
     return(net.estimateSinglePose(imageElement, imageScaleFactor, flipHorizontal, outputStride)).then(function(pose) {
-      console.log(pose);
-      clearDiv()
       generate_point(pose);
       generate_rectangle(pose);
     });
@@ -68,9 +66,9 @@ const lstBodyPartsStr = ["leftArmLower", "leftArmUpper", "rightArmLower", "right
 
 var element = document.getElementsByTagName('body')[0]
 
-function generate_rectangle(pose) {s
+createDiv(lstBodyPartsStr, element)
+
+function generate_rectangle(pose) {
   const lstBodyCoordinates = getBodyPartPosition (lstBodyParts, pose);
   rectangles(lstBodyCoordinates, lstBodyPartsStr,element);
-  console.log(lstBodyCoordinates);
- 
 }

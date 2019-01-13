@@ -31,7 +31,7 @@ function rectangles(lstBodyCoordinates, lstBodyPartsStr, element){
             var matrix = lstBodyCoordinates[i]
 
             // arms are defined by 2 points
-            var newDiv = document.getElementById[lstBodyPartsStr[i]]
+            var newDiv = document.getElementById(lstBodyPartsStr[i])
             if (newDiv.id != "bodyCore"){
                 var x0 = matrix[0][0]
                 var x1 = matrix[1][0]
