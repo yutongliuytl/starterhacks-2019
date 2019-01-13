@@ -1,15 +1,22 @@
 // returns [x, y]
 function getPos (part, keypoints) {
+    // threshold for accuracy
+
+    const threshold = 70
     var position = []
     for (var i = 0; i<keypoints.length; i++){
-        if (position.length == 2){
-            return position 
-        }
         var element = keypoints[i]
         var bodypart = element["part"]
         var coordinates = element["position"]
+        var score = element["score"]
         if (bodypart == part){
-            position = [coordinates["x"], coordinates["y"]]
+            if (score <= threshold){
+                return false 
+            }
+            else {
+                position = [coordinates["x"], coordinates["y"]]
+                return position 
+            }
         }
 
     }
@@ -21,7 +28,13 @@ function getBodyPartPosition (lstBodyParts) {
     for (var i = 0; i < lstBodyParts.length; i++){
         lstBodyCoordinates[i] = []
         for (var j = 0; j< lstBodyParts[i].length; j++){
-            lstBodyCoordinates[i][j] = getPos(lstBodyParts[i][j], pose["keypoints"])
+            var position = getPos(lstBodyParts[i][j], pose["keypoints"])
+            if (position == false){
+                return false 
+            }
+            else {
+                lstBodyCoordinates[i][j] = position 
+            }
         }
     }
     return lstBodyCoordinates
