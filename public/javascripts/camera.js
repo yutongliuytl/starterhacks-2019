@@ -14,7 +14,7 @@ interval = setInterval(function () {
     imageCapture.grabFrame()
     .then(processFrame)
     .catch(err => console.error('grabFrame() failed: ', err));
-}, 100);
+}, 50);
 }
 
 function processFrame(imgData) {
