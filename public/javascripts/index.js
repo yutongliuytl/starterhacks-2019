@@ -4,8 +4,18 @@ var flipHorizontal = false;
 
 var imageElement = document.getElementById('camera');
 
-posenet.load().then(function(net){
-  return net.estimateSinglePose(imageElement, imageScaleFactor, flipHorizontal, outputStride)
-}).then(function(pose){
-  console.log(pose);
-})
+var posenet = posenet.load();
+
+setInterval(function() {
+  posenet.then(function(net) {
+    return(net.estimateSinglePose(imageElement, imageScaleFactor, flipHorizontal, outputStride)).then(function(pose) {
+      console.log(pose);
+    });
+  });
+}, 100);
+
+// posenet.load().then(function(net){
+//   return net.estimateSinglePose(imageElement, imageScaleFactor, flipHorizontal, outputStride)
+// }).then(function(pose){
+//   console.log(pose);
+// })
