@@ -19,7 +19,7 @@
       imageCapture.grabFrame()
         .then(processFrame)
         .catch(err => console.error('grabFrame() failed: ', err));
-    }, 10);
+    }, 50);
   }
 
   function processFrame(imgData) {
