@@ -1,10 +1,29 @@
 var imageScaleFactor = 0.5;
 var outputStride = 16;
 var flipHorizontal = false;
-
+var templates = false
 var imageElement = document.getElementById('camera');
-
 var posenet = posenet.load();
+var socket = io.connect();
+
+socket.on('news', function (data) {
+  console.log("product")
+  console.log("I am here")
+console.log(data);
+  LAlower.style.backgroundImage = "url("+ data.hello.leftForeArm +")";
+  LAlower.style.backgroundSize = "auto";
+  LAupper.style.backgroundImage= "url("+ data.hello.leftArm+")";
+  LAupper.style.backgroundSize= "auto";
+  RAlower.style.backgroundImage= "url('"+data.hello.rightForeArm +"')";
+  RAlower.style.backgroundSize= "auto";
+  RAupper.style.backgroundImage= "url('"+data.hello.rightArm +"')";
+  RAupper.style.backgroundSize= "auto";
+  BC.style.backgroundImage= "url("+ data.hello.bodyCore+")";
+  BC.style.backgroundSize= "auto";
+  socket.emit('my other event', { my: 'data' });
+});
+
+
 
 setInterval(function() {
   posenet.then(function(net) {
@@ -70,4 +89,14 @@ createDiv(lstBodyPartsStr, element)
 function generate_rectangle(pose) {
   const lstBodyCoordinates = getBodyPartPosition (lstBodyParts, pose);
   rectangles(lstBodyCoordinates, lstBodyPartsStr,element);
+  
 }
+
+var LAlower  = document.getElementById('leftArmLower')
+var LAupper  = document.getElementById('leftArmUpper')
+var RAlower  = document.getElementById('rightArmLower')
+var RAupper  = document.getElementById('rightArmUpper')
+var BC       = document.getElementById('bodyCore')
+
+
+
