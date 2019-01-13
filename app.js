@@ -39,7 +39,7 @@ app.get('/:id', function(req, res, next){
       console.log("Error: No Product Found.");
       return res.redirect('/');
     }else{
-      console.log("Benny");
+      
     //Redirect
     io.on('connection', function (socket) {
       socket.emit('news', { hello: product });
@@ -49,7 +49,7 @@ app.get('/:id', function(req, res, next){
     });
         Product.find({},function(err,docs){
           if(!err){
-            console.log("to")
+           
             res.render('index', {products: docs , selected: product});
           }
         });
