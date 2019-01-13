@@ -1,8 +1,34 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #C2CAD0;
 }
 
 a {
   color: #00B7FF;
 }
+
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+#sidebar {
+  
+  width: 481px;
+  padding-right:0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 999;
+  font-family: "Helvetica, Arial, snas-serif";
+  background: #0f2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #0f2027, #203a43, #2c5364); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+  transition: all 0.3s;
+};
+
+
+
