@@ -2,7 +2,7 @@
 function getPos (part, keypoints) {
     // threshold for accuracy
 
-    const threshold = 70
+    const threshold = 0
     var position = []
     for (var i = 0; i<keypoints.length; i++){
         var element = keypoints[i]
@@ -23,7 +23,7 @@ function getPos (part, keypoints) {
     return position
 }
 
-function getBodyPartPosition (lstBodyParts) {
+function getBodyPartPosition (lstBodyParts, pose) {
     var lstBodyCoordinates = []
     for (var i = 0; i < lstBodyParts.length; i++){
         lstBodyCoordinates[i] = []
