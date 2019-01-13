@@ -14,7 +14,7 @@ interval = setInterval(function () {
     imageCapture.grabFrame()
     .then(processFrame)
     .catch(err => console.error('grabFrame() failed: ', err));
-}, 100);
+}, 50);
 }
 
 function processFrame(imgData) {
@@ -22,6 +22,7 @@ canvas.width = imgData.width;
 canvas.height = imgData.height;
 canvas.getContext('2d').translate(imgData.width, 0);
 canvas.getContext('2d').scale(-1,1);
+// canvas.getContext('2d').scale(Math.floor(document.height / imgData.height), Math.floor(document.width * 0.75 / imgData.width));
 canvas.getContext('2d').drawImage(imgData, 0, 0);
 }
 
