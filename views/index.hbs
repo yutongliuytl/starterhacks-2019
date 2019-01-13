@@ -1,37 +1,35 @@
 <div class="wrapper">
     <!-- Sidebar -->
     <nav id="sidebar">
-      <div class="container" style = " margin: 5px 5px 5px 5px;  height: 100% " >
-        <div class="sidebar-header">
-          <div>
-            <h3 class = "text" style = "text-align: center; padding-top: 10%; padding-bottom: 10% ">Wardrobe</h3>
-          </div>
-            
+
+      <div class="container" style = " margin: 5px 5px 5px 5px;  height: 100% " align="center">
+        <div class="sidebar-header" style="margin-top: 50px">
+            <h3 style = "text-align: center; font-family: 'Pacifico', cursive;   font-size: 50px;" >Dressroom</h3>
+
         </div>
 
 
         <ul class="list-unstyled components" align="center">
           
-            <li>
-                <a href="#"><img src="https://files.slack.com/files-pri/TF6KZUDGD-FFBMYTVRN/ktvtee.png" alt="" style = " height = 200px; width : 200px; margin: 0px auto;"></a>
-            </li>
-            <li>
-                <a href="#"><img src="https://files.slack.com/files-pri/TF6KZUDGD-FFC9ALCQ4/sageismls.png" alt="" style = " height = 200px; width : 200px; margin: 0px auto;"></a>
-            </li>
-            <li>
-              <button type="button" id="stop" class="btn btn-danger" style="width: 120px; margin-top: 20%" >
-                    <i class="fas fa-align-left"></i>
-                    <span>STOP</span>
-                </button>
-            </li>
+            <p style = "text-align: center; font-size: 20px;">Select a shirt.</p>
+            {{# each products}}
+                {{# each this}}
+                    <li>
+                        <a href="/{{this._id}}"><img src="{{this.product}}" alt="" style = " height = 300px; width : 300px; border-radius: 10px"></a>
+                    </li>
+                {{/each}}
+            {{/each}}
         </ul>
-        
+        <button type="button" id="stop" class="btn btn-danger" style="width: 120px; height: 80px; bottom: 0px"; >
+            <i class="fas fa-align-left"></i>
+            <span>STOP</span>
+        </button>
       </div>
       
     </nav>
 </div>
 
-<canvas id="camera" style = "width: 75%; position: absolute; top: 0px; right: 0px; border-radius: 10px"></canvas>
+<canvas id="camera" style = "width: 75%; position: absolute; top: 0px; right: 0px;"></canvas>
 <div id='head' style='background-color:red; width: 9px; height: 9px;'></div>
 <div id='lefts' style='background-color:red; width: 9px; height: 9px;'></div>
 <div id='rights' style='background-color:red; width: 9px; height: 9px;'></div>

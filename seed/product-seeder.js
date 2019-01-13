@@ -13,7 +13,7 @@ var products = [
         bodyCore: 'images/product1/bodyCore.png'  
     }),
     new Product({
-        product: 'images/product1/sageismls.png',
+        product: 'images/product2/sageismls.png',
         leftForeArm: 'images/product2/leftForeArm.png', 
         rightForeArm: 'images/product2/rightForeArm.png', 
         leftArm: 'images/product2/leftArm.png', 

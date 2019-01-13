@@ -3,8 +3,6 @@ var outputStride = 16;
 var flipHorizontal = false;
 
 var imageElement = document.getElementById('camera');
-var c = document.getElementById("camera");
-var ctx = c.getContext("2d");
 var posenet = posenet.load();
 
 setInterval(function() {
@@ -56,9 +54,4 @@ function generate_point(pose) {
   leftw.style.top = Math.floor(coords5.y * scale_factor) + 'px';
   leftw.style.left = canvas.offsetLeft + Math.floor(coords5.x * scale_factor) + 'px';
 
-ctx.beginPath();
-console.log("BRUH");
-ctx.moveTo(coords4.x , coords4.y );
-ctx.lineTo(coords2.x , coords2.y );
-ctx.stroke();
 }
