@@ -22,7 +22,6 @@ function rectangles(lstBodyCoordinates, lstBodyPartsStr, element){
             var newDiv = document.createElement("div")
             newDiv.id = lstBodyPartsStr[i]
 
-            
             // arms are defined by 2 points
             if (newDiv.id != "bodyCore"){
                 var x0 = matrix[0][0]
@@ -56,14 +55,13 @@ function rectangles(lstBodyCoordinates, lstBodyPartsStr, element){
                 var widthScaled = width * scaleFactor
                 var heightScaled = height * scaleFactor
 
-
-                newDiv.style.width = widthScaled
-                newDiv.style.height = C * widthScaled 
+                newDiv.style.width = widthScaled + 'px'
+                newDiv.style.height = C * widthScaled + 'px'
                 newDiv.style.transform = "rotate(" + angle.toString() + "deg)"
                 newDiv.style.background = lstcolor[i]
                 newDiv.style.position = "absolute"
-                newDiv.style.left = (midpoint[0] - 1/2*width) * scaleFactor + offset
-                newDiv.style.top = (midpoint[1] - 1/2*height) * scaleFactor
+                newDiv.style.left = (midpoint[0] - 1/2*width) * scaleFactor + offset + 'px'
+                newDiv.style.top = (midpoint[1] - 1/2*height) * scaleFactor + 'px'
                 // var img = some image 
                 // newDiv.appendChild(img)
             }
@@ -116,17 +114,16 @@ function rectangles(lstBodyCoordinates, lstBodyPartsStr, element){
                 )
                 var heightScaled = height * scaleFactor
 
-                newDiv.style.width = widthScaled
-                newDiv.style.height = heightScaled
+                newDiv.style.width = widthScaled + 'px'
+                newDiv.style.height = heightScaled + 'px'
                 newDiv.style.transform = "rotate(" + angle.toString() + "deg)"
                 newDiv.style.position = "absolute"
                 newDiv.style.background = lstcolor[i]
-                newDiv.style.left = (midpointMid[0] - 1/2 * width) * scaleFactor + offset 
-                newDiv.style.top = (midpointMid[1] - 1/2 * height) * scaleFactor 
+                newDiv.style.left = (midpointMid[0] - 1/2 * width) * scaleFactor + offset + 'px'
+                newDiv.style.top = (midpointMid[1] - 1/2 * height) * scaleFactor + 'px'
                 
             }
             element.appendChild(newDiv)
-
         }
     }
 }

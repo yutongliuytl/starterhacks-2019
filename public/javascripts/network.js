@@ -10,7 +10,9 @@ setInterval(function() {
   posenet.then(function(net) {
     return(net.estimateSinglePose(imageElement, imageScaleFactor, flipHorizontal, outputStride)).then(function(pose) {
       console.log(pose);
+      clearDiv()
       generate_point(pose);
+      generate_rectangle(pose);
     });
   });
 }, 100);
@@ -54,4 +56,21 @@ function generate_point(pose) {
   leftw.style.position = 'absolute';
   leftw.style.top = Math.floor(coords5.y * scale_factor) + 'px';
   leftw.style.left = canvas.offsetLeft + Math.floor(coords5.x * scale_factor) + 'px';
+}
+
+const leftArmLower = ["leftElbow", "leftWrist"]
+const leftArmUpper = ["leftShoulder", "leftElbow"]
+const rightArmLower = ["rightElbow", "rightWrist"]
+const rightArmUpper = ["rightShoulder", "rightElbow"]
+const bodyCore = ["leftShoulder", "rightShoulder", "rightHip", "leftHip"]
+const lstBodyParts = [leftArmLower, leftArmUpper, rightArmLower, rightArmUpper, bodyCore]
+const lstBodyPartsStr = ["leftArmLower", "leftArmUpper", "rightArmLower", "rightArmUpper", "bodyCore"]
+
+var element = document.getElementsByTagName('body')[0]
+
+function generate_rectangle(pose) {s
+  const lstBodyCoordinates = getBodyPartPosition (lstBodyParts, pose);
+  rectangles(lstBodyCoordinates, lstBodyPartsStr,element);
+  console.log(lstBodyCoordinates);
+ 
 }
