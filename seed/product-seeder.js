@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Product = require('../models/dressroom');
 
-mongoose.connect('mongodb://localhost:27017/dressroom', {useNewUrlParser: true});
+mongoose.connect('mongodb://yutongliuytl:penis123@ds155864.mlab.com:55864/dressroom', {useNewUrlParser: true});
 
 var products = [
     new Product({
