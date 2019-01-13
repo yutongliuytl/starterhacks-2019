@@ -11,7 +11,7 @@ var http = require("http")
 var app = express();
 var server = http.createServer(app);
 var io = require('socket.io')(http).listen(server);
-mongoose.connect('mongodb://localhost:27017/dressroom', {useNewUrlParser: true});
+mongoose.connect('mongodb://yutongliuytl:penis123@ds155864.mlab.com:55864/dressroom', {useNewUrlParser: true});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
