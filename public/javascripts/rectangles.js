@@ -5,6 +5,16 @@ const lstcolor = ["crimson", "khaki", "lime", "aqua", "darkmagenta"]
 const offset = window.innerWidth * 0.25
 const scaleFactor = parseInt(window.innerWidth) * 0.75 / 640
 
+// createDiv creates the div's for each body part
+function createDiv(lstBodyPartsStr, element){
+    for (var i = 0; i<lstBodyPartsStr.length; i++){
+        var newDiv = document.createElement("div")
+        newDiv.id = lstBodyPartsStr[i]
+        newDiv.style.background = lstcolor[i]
+        element.appendChild(newDiv)
+    }
+}
+
 // to call rectangles(...)
 // write rectangles(lstBodyCoordinates, lstBodyPartsStr, element)
 // where element is a var element = getElementBy...
@@ -19,10 +29,9 @@ function rectangles(lstBodyCoordinates, lstBodyPartsStr, element){
     else {
         for (var i = 0; i<lstBodyCoordinates.length; i++){
             var matrix = lstBodyCoordinates[i]
-            var newDiv = document.createElement("div")
-            newDiv.id = lstBodyPartsStr[i]
 
             // arms are defined by 2 points
+            var newDiv = document.getElementById[lstBodyPartsStr[i]]
             if (newDiv.id != "bodyCore"){
                 var x0 = matrix[0][0]
                 var x1 = matrix[1][0]
@@ -58,7 +67,6 @@ function rectangles(lstBodyCoordinates, lstBodyPartsStr, element){
                 newDiv.style.width = widthScaled + 'px'
                 newDiv.style.height = C * widthScaled + 'px'
                 newDiv.style.transform = "rotate(" + angle.toString() + "deg)"
-                newDiv.style.background = lstcolor[i]
                 newDiv.style.position = "absolute"
                 newDiv.style.left = (midpoint[0] - 1/2*width) * scaleFactor + offset + 'px'
                 newDiv.style.top = (midpoint[1] - 1/2*height) * scaleFactor + 'px'
@@ -118,12 +126,11 @@ function rectangles(lstBodyCoordinates, lstBodyPartsStr, element){
                 newDiv.style.height = heightScaled + 'px'
                 newDiv.style.transform = "rotate(" + angle.toString() + "deg)"
                 newDiv.style.position = "absolute"
-                newDiv.style.background = lstcolor[i]
                 newDiv.style.left = (midpointMid[0] - 1/2 * width) * scaleFactor + offset + 'px'
                 newDiv.style.top = (midpointMid[1] - 1/2 * height) * scaleFactor + 'px'
                 
             }
-            element.appendChild(newDiv)
+
         }
     }
 }
