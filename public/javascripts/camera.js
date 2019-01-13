@@ -2,7 +2,7 @@ const canvas = document.getElementById('camera');
 
 var interval;
 var track;
-
+var recording = true;
 navigator.mediaDevices.getUserMedia({video: true})
 .then(gotMedia)
 .catch(err => console.error('getUserMedia() failed: ', err));
@@ -25,15 +25,24 @@ canvas.getContext('2d').scale(-1,1);
 canvas.getContext('2d').drawImage(imgData, 0, 0);
 }
 
+document.getElementById("stop").addEventListener("click", toggleGrabFrame)
+
 function toggleGrabFrame(e) {
     if (recording) {
         clearInterval(interval);
         track.stop();
         recording = false;
+        document.getElementsByTagName("button")[0].classList.remove("btn-danger");
+        document.getElementsByTagName("button")[0].classList.add("btn-success");
+        document.getElementById("stop").innerHTML = " PLAY "
     } else {
         navigator.mediaDevices.getUserMedia({video: true})
         .then(gotMedia)
         .catch(err => console.error('getUserMedia() failed: ', err));
         recording = true;
+        document.getElementsByTagName("button")[0].classList.remove("btn-success");
+        document.getElementsByTagName("button")[0].classList.add("btn-danger");
+        document.getElementById("stop").innerHTML = " STOP "
+
     }
 }
