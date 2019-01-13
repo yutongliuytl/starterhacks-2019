@@ -9,3 +9,4 @@ const lstBodyParts = [leftArmLower, leftArmUpper, rightArmLower, rightArmUpper, 
 
 // transforms a list of body parts into their corresponding coordinates
 const lstBodyCoordinates = getBodyPartPosition (lstBodyParts)
+const lstBodyPartsStr = ["leftArmLower", "leftArmUpper", "rightArmLower", "rightArmUpper", "bodyCore"]
