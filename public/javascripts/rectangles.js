@@ -11,7 +11,7 @@ function createDiv(lstBodyPartsStr, element){
     for (var i = 0; i<lstBodyPartsStr.length; i++){
         var newDiv = document.createElement("div")
         newDiv.id = lstBodyPartsStr[i]
-        newDiv.style.background = lstcolor[i]
+        // newDiv.style.background = lstcolor[i]
         element.appendChild(newDiv)
     }
 }
@@ -41,7 +41,7 @@ function rectangles(lstBodyCoordinates, lstBodyPartsStr, element){
 
                 var midpoint = [1/2 * (x0 + x1), 1/2 * (y0 + y1)]
                 // need to define C
-                const C = 0.6  
+                const C = 1 
                 var xDelta = x0 - x1
                 var yDelta = y0 - y1
 
@@ -128,7 +128,7 @@ function rectangles(lstBodyCoordinates, lstBodyPartsStr, element){
                 newDiv.style.transform = "rotate(" + angle.toString() + "deg)"
                 newDiv.style.position = "absolute"
                 newDiv.style.left = (midpointMid[0] - 1/2 * width) * scaleFactor + offset + 'px'
-                newDiv.style.top = (midpointMid[1] - 1/2 * height) * scaleFactor + 'px'
+                newDiv.style.top = (midpointMid[1] - 1/2 * height) * scaleFactor - 80 + 'px'
                 
             }
 

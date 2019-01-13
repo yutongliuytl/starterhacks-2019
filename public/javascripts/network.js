@@ -11,15 +11,20 @@ socket.on('news', function (data) {
   console.log("I am here")
 console.log(data);
   LAlower.style.backgroundImage = "url("+ data.hello.leftForeArm +")";
-  LAlower.style.backgroundSize = "auto";
+  LAlower.style.backgroundRepeat = "no-repeat"
+  LAlower.style.backgroundSize = "contain";
   LAupper.style.backgroundImage= "url("+ data.hello.leftArm+")";
-  LAupper.style.backgroundSize= "auto";
+  LAupper.style.backgroundRepeat = "no-repeat"
+  LAupper.style.backgroundSize= "contain";
   RAlower.style.backgroundImage= "url('"+data.hello.rightForeArm +"')";
-  RAlower.style.backgroundSize= "auto";
+  RAlower.style.backgroundRepeat = "no-repeat"
+  RAlower.style.backgroundSize= "contain";
   RAupper.style.backgroundImage= "url('"+data.hello.rightArm +"')";
-  RAupper.style.backgroundSize= "auto";
+  RAupper.style.backgroundRepeat = "no-repeat"
+  RAupper.style.backgroundSize= "contain";
   BC.style.backgroundImage= "url("+ data.hello.bodyCore+")";
-  BC.style.backgroundSize= "auto";
+  BC.style.backgroundRepeat = "no-repeat"
+  BC.style.backgroundSize= "contain";
   socket.emit('my other event', { my: 'data' });
 });
 
