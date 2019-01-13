@@ -1,2 +1,35 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+<canvas></canvas>
+<button onclick="stopGrabFrame()">Stop frame grab</button>
+<script>
+  const canvas = document.querySelector('canvas');
+
+  var interval;
+  var track;
+
+  navigator.mediaDevices.getUserMedia({video: true})
+    .then(gotMedia)
+    .catch(err => console.error('getUserMedia() failed: ', err));
+
+  function gotMedia(mediastream) {
+    track = mediastream.getVideoTracks()[0];
+    var imageCapture = new ImageCapture(track);
+    interval = setInterval(function () {
+      imageCapture.grabFrame()
+        .then(processFrame)
+        .catch(err => console.error('grabFrame() failed: ', err));
+    }, 10);
+  }
+
+  function processFrame(imgData) {
+    canvas.width = imgData.width;
+    canvas.height = imgData.height;
+    canvas.getContext('2d').drawImage(imgData, 0, 0);
+  }
+
+  function stopGrabFrame(e) {
+    clearInterval(interval);
+    track.stop();
+  }
+</script>
