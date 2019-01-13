@@ -1,4 +1,3 @@
-const canvas = document.getElementById('camera');
 
 var interval;
 var track;

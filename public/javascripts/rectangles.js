@@ -1,9 +1,10 @@
 // const lstBodyCoordinates = getBodyPartPosition (lstBodyParts)
 // const lstBodyPartsStr = ["leftArmLower", "leftArmUpper", "rightArmLower", "rightArmUpper", "bodyCore"]
+const canvas = document.getElementById('camera');
 
 const lstcolor = ["crimson", "khaki", "lime", "aqua", "darkmagenta"]
-const offset = window.innerWidth * 0.25
-const scaleFactor = parseInt(window.innerWidth) * 0.75 / 640
+const offset = canvas.offsetLeft;
+const scaleFactor = parseInt(window.innerWidth) * 0.75 / 640;
 
 // createDiv creates the div's for each body part
 function createDiv(lstBodyPartsStr, element){
@@ -40,7 +41,7 @@ function rectangles(lstBodyCoordinates, lstBodyPartsStr, element){
 
                 var midpoint = [1/2 * (x0 + x1), 1/2 * (y0 + y1)]
                 // need to define C
-                const C = 0.4  
+                const C = 0.6  
                 var xDelta = x0 - x1
                 var yDelta = y0 - y1
 
@@ -115,12 +116,12 @@ function rectangles(lstBodyCoordinates, lstBodyPartsStr, element){
                 var yDeltaSqrTop = Math.pow(yDeltaTop, 2)
 
                 var width = Math.sqrt(xDeltaSqrTop + yDeltaSqrTop)
-                var widthScaled = width * scaleFactor
+                var widthScaled = width * scaleFactor + 80
 
                 var height = Math.sqrt(
                     Math.pow(midpointTop[0]-midpointBot[0], 2) + Math.pow(midpointTop[1]-midpointBot[1], 2)
                 )
-                var heightScaled = height * scaleFactor
+                var heightScaled = height * scaleFactor + 30
 
                 newDiv.style.width = widthScaled + 'px'
                 newDiv.style.height = heightScaled + 'px'
