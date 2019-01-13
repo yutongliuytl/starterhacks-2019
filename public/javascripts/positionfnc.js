@@ -1,5 +1,4 @@
 // returns [x, y]
-
 function getPos (part, keypoints) {
     var position = []
     for (var i = 0; i<keypoints.length; i++){

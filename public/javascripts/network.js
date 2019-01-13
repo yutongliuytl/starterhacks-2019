@@ -18,39 +18,40 @@ setInterval(function() {
 
 function generate_point(pose) {
   var canvas = document.getElementById('camera')
+  var scale_factor = parseInt(window.innerWidth) * 0.75 / 640;
 
   var head = document.getElementById('head')
   var coords1 = pose.keypoints[0].position
 
   head.style.position = 'absolute';
-  head.style.top = canvas.offsetTop + Math.floor(coords1.y) + 'px';
-  head.style.left = canvas.offsetLeft + Math.floor(coords1.x) + 'px';
+  head.style.top = Math.floor(coords1.y * scale_factor) + 'px';
+  head.style.left = canvas.offsetLeft + Math.floor(coords1.x * scale_factor) + 'px';
 
   var rights = document.getElementById('rights')
   var coords2 = pose.keypoints[6].position
 
   rights.style.position = 'absolute';
-  rights.style.top = canvas.offsetTop + Math.floor(coords2.y) + 'px';
-  rights.style.left = canvas.offsetLeft + Math.floor(coords2.x) + 'px';
+  rights.style.top = Math.floor(coords2.y * scale_factor) + 'px';
+  rights.style.left = canvas.offsetLeft + Math.floor(coords2.x * scale_factor) + 'px';
 
   var lefts = document.getElementById('lefts')
   var coords3 = pose.keypoints[5].position
 
   lefts.style.position = 'absolute';
-  lefts.style.top = canvas.offsetTop + Math.floor(coords3.y) + 'px';
-  lefts.style.left = canvas.offsetLeft + Math.floor(coords3.x) + 'px';
+  lefts.style.top = Math.floor(coords3.y * scale_factor) + 'px';
+  lefts.style.left = canvas.offsetLeft + Math.floor(coords3.x * scale_factor) + 'px';
 
   var rightw = document.getElementById('rightw')
   var coords4 = pose.keypoints[10].position
 
   rightw.style.position = 'absolute';
-  rightw.style.top = canvas.offsetTop + Math.floor(coords4.y) + 'px';
-  rightw.style.left = canvas.offsetLeft + Math.floor(coords4.x) + 'px';
+  rightw.style.top = Math.floor(coords4.y * scale_factor) + 'px';
+  rightw.style.left = canvas.offsetLeft + Math.floor(coords4.x * scale_factor) + 'px';
 
   var leftw = document.getElementById('leftw')
   var coords5 = pose.keypoints[9].position
 
   leftw.style.position = 'absolute';
-  leftw.style.top = canvas.offsetTop + Math.floor(coords5.y) + 'px';
-  leftw.style.left = canvas.offsetLeft + Math.floor(coords5.x) + 'px';
+  leftw.style.top = Math.floor(coords5.y * scale_factor) + 'px';
+  leftw.style.left = canvas.offsetLeft + Math.floor(coords5.x * scale_factor) + 'px';
 }

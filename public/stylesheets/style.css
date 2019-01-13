@@ -2,6 +2,7 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: #C2CAD0;
+  overflow: hidden;
 }
 
 a {
@@ -15,12 +16,12 @@ a {
 
 #sidebar {
   
-  width: 481px;
+  width: 25%;
   padding-right:0px;
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100%;
   z-index: 999;
   font-family: "Helvetica, Arial, snas-serif";
   background: #0f2027; /* fallback for old browsers */
