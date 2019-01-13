@@ -5,7 +5,9 @@ var Product = require('../models/dressroom');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  Product.find({}, function(err, docs) {
+    res.render('index', { products: docs })
+  });
 });
 
 router.get('/:id', function(req, res, next){

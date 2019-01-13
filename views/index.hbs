@@ -1,32 +1,26 @@
 <div class="wrapper">
     <!-- Sidebar -->
     <nav id="sidebar">
-      <div class="container" style = " margin: 5px 5px 5px 5px;  height: 100% " >
-        <div class="sidebar-header">
-            <h3 style = "text-align: center;">Cloating Menu</h3>
+      <div class="container" style = " margin: 5px 5px 5px 5px;  height: 100% " align="center">
+        <div class="sidebar-header" style="margin-top: 50px">
+            <h3 style = "text-align: center; font-family: 'Pacifico', cursive">Dressroom</h3>
         </div>
 
         <ul class="list-unstyled components" align="center">
           
-            <p style = "text-align: center;">Please select the sshirt that you would like to try on</p>
-          
-            <li>
-                <a href="#"><img src="https://files.slack.com/files-pri/TF6KZUDGD-FFBMYTVRN/ktvtee.png" alt="" style = " height = 200px; width : 200px; margin: 0px auto;"></a>
-            </li>
-            <li>
-                <a href="#"><img src="https://files.slack.com/files-pri/TF6KZUDGD-FFC9ALCQ4/sageismls.png" alt="" style = " height = 200px; width : 200px; margin: 0px auto;"></a>
-            </li>
-            <li>
-                <a href="#" ><img src="https://files.slack.com/files-pri/TF6KZUDGD-FFBMYTVRN/ktvtee.png" alt="" style = " height = 200px; width : 200px;" ></a>
-            </li>
-            <li>
-              <button type="button" id="stop" class="btn btn-danger" style="width: 120px; height: 80px; margin-top: 200px" >
-                    <i class="fas fa-align-left"></i>
-                    <span>STOP</span>
-                </button>
-            </li>
+            <p style = "text-align: center;">Select a shirt.</p>
+            {{# each products}}
+                {{# each this}}
+                    <li>
+                        <a href="#"><img src="{{this.product}}" alt="" style = " height = 300px; width : 300px; background-color: #b4d7bf; border-radius: 10px"></a>
+                    </li>
+                {{/each}}
+            {{/each}}
         </ul>
-        
+        <button type="button" id="stop" class="btn btn-danger" style="width: 120px; height: 80px; bottom: 0px"; >
+            <i class="fas fa-align-left"></i>
+            <span>STOP</span>
+        </button>
       </div>
       
     </nav>
