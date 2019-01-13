@@ -6,3 +6,10 @@ body {
 a {
   color: #00B7FF;
 }
+
+.point{
+  height: 5px;
+  width: 5px;
+  position: absolute;
+  background-color: red;
+}
