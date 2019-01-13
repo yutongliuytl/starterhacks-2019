@@ -1,9 +1,9 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
-<canvas></canvas>
+<canvas id="camera"></canvas>
 <button onclick="stopGrabFrame()">Stop frame grab</button>
 <script>
-  const canvas = document.querySelector('canvas');
+  const canvas = document.getElementById('camera');
 
   var interval;
   var track;
